@@ -3,6 +3,9 @@ package com.example.nicoletranwgnactivitylifecycle
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
+import android.widget.EditText
+import android.widget.TextView
 
 class MainActivity : AppCompatActivity() {
     private val logTag = "MainActivity"
@@ -11,6 +14,16 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         Log.d(logTag, "onCreate() called")
+
+        val helloButton: Button = findViewById(R.id.hello_button)
+        val editText: EditText = findViewById(R.id.edit_text)
+        val textView: TextView = findViewById(R.id.text_view)
+
+        helloButton.setOnClickListener {
+            editText.setText(getString(R.string.hello))
+            textView.text = getString(R.string.hello)
+        }
+
     }
 
     override fun onStart() {
